@@ -3,8 +3,12 @@ import java.util.Scanner
 fun main() {
     val sc = Scanner(System.`in`)
 
-    val input = sc.nextLine()
-    val nums = input.split(" ").map { it.toInt() }
-    val sum = nums[3-1] + nums[5-1] + nums[10-1]
+    val arr = Array<Int>(10) { 0 }
+
+    for (i in 0 until 10) {
+        arr[i] = sc.nextInt()
+    }
+
+    val sum = arr[3-1] + arr[5-1] + arr[10-1]
     println(sum)
 }
