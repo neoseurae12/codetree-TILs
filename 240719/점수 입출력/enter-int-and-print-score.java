@@ -6,6 +6,6 @@ public class Main {
 
         int score = sc.nextInt();
 
-        System.out.printf("Your score is %d point", score);
+        System.out.printf("Your score is %d point.", score);
     }
 }
