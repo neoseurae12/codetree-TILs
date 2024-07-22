@@ -6,20 +6,20 @@ public class Main {
 
         int score = sc.nextInt();
 
-        String class;
+        String className;
 
         if (score >= 90) {
-            class = "A";
+            className = "A";
         } else if (score >= 80) {
-            class = "B";
+            className = "B";
         } else if (score >= 70) {
-            class = "C";
+            className = "C";
         } else if (score >= 60) {
-            class = "D";
+            className = "D";
         } else {
-            class = "F";
+            className = "F";
         }
 
-        System.out.println(class);
+        System.out.println(className);
     }
 }
