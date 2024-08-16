@@ -13,12 +13,15 @@ public class Main {
         }
 
         Arrays.sort(arr);
-        String[] strArr = Arrays.stream(arr).mapToObj(String::valueOf).toArray(String[]::new);
-        System.out.println(String.join(" ", strArr));
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
 
         Integer[] boxedArr = Arrays.stream(arr).boxed().toArray(Integer[]::new);
         Arrays.sort(boxedArr, Collections.reverseOrder());
-        strArr = Arrays.stream(boxedArr).mapToObj(String::valueOf).toArray(String[]::new);
-        System.out.println(String.join(" ", strArr));
+        for (int i = 0; i < n; i++) {
+            System.out.print(boxedArr[i] + " ");
+        }
     }
 }
