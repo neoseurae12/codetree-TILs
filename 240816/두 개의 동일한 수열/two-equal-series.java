@@ -9,13 +9,11 @@ public class Main {
         int[] A = new int[n];
         int[] B = new int[n];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             A[i] = sc.nextInt();
-        }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             B[i] = sc.nextInt();
-        }
 
         Arrays.sort(A);
         Arrays.sort(B);
