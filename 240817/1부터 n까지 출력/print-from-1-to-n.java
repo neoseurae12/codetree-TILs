@@ -11,8 +11,8 @@ public class Main {
         n = sc.nextInt();
 
         // 출력
-        for (int i = 0; i < n; i++) {
-            System.out.print((i + 1) + " ");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + 1 + " ");
         }
     }
 }
