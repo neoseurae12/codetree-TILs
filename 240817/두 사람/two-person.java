@@ -1,20 +1,25 @@
 import java.util.Scanner;
 
 public class Main {
-    public static boolean isManOver19(int age, String gender) {
-        return (age >= 19 && gender.equals("M")) ? true : false;
+    public static boolean isManOver19(int age, char gender) {
+        return age >= 19 && gender == 'M';
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int age1 = sc.nextInt();
-        String gender1 = sc.next();
+        // 변수 선언
+        int a_age, b_age;
+        char a_gender, b_gender;
 
-        int age2 = sc.nextInt();
-        String gender2 = sc.next();
+        // 입력
+        a_age = sc.nextInt();
+        a_gender = sc.next().charAt(0);
+        b_age = sc.nextInt();
+        b_gender = sc.next().charAt(0);
 
-        if (isManOver19(age1, gender1) || isManOver19(age2, gender2))
+        // 출력
+        if (isManOver19(a_age, a_gender) || isManOver19(b_age, b_gender))
             System.out.println(1);
         else
             System.out.println(0);
