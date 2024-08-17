@@ -12,7 +12,7 @@ public class Main {
 
         // 출력
         for (int i = 1; i <= n; i++) {
-            System.out.print(i + 1 + " ");
+            System.out.print(i + " ");
         }
     }
 }
