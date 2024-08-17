@@ -5,7 +5,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         // 변수 선언
-        int a, b, i;
+        int a, b;
+        int i;
 
         // 입력
         a = sc.nextInt();
