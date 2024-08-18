@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
+// 최댓값을 최솟값과 묶는 것이 항상 최선이다.
+    // 즉, 정렬한 뒤, 양끝끼리 대칭적으로 묶는다.
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
