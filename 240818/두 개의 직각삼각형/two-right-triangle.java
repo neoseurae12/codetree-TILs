@@ -7,7 +7,7 @@ public class Main {
     }
 
     public static void drawBlank(int n, int i) {
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < i * 2; j++)
             System.out.print(" ");
     }
 
@@ -18,7 +18,6 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             drawStar(n, i);
-            drawBlank(n, i);
             drawBlank(n, i);
             drawStar(n, i);
             System.out.println();
