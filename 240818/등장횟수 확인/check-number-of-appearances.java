@@ -4,18 +4,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int ITERATION = 5;
-        int evenNumbers = 0, num;
+        int evenCount = 0, num;
 
-        while (ITERATION > 0) {
+        for (int i = 0; i < 5; i++) {
             num = sc.nextInt();
 
             if (num % 2 == 0)
-                evenNumbers++;
-            
-            ITERATION--;
+                evenCount++;
         }
 
-        System.out.println(evenNumbers);
+        System.out.println(evenCount);
     }
 }
