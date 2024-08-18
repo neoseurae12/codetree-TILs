@@ -7,8 +7,6 @@ public class Main {
         int n;
         n = sc.nextInt();
 
-        String star = "*";
-
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < i * 2 + 1; j++)
                 System.out.print("*");
