@@ -10,9 +10,8 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print(num);
-                if (num > 1)
-                    num--;
-                else
+                num--;
+                if (num == 0)
                     num = 9;
             }
             System.out.println();
