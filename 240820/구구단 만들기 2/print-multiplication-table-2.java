@@ -9,10 +9,11 @@ public class Main {
         a = sc.nextInt();
         b = sc.nextInt();
 
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 2; i <= 8; i += 2) {
             for (int j = b; j >= a; j--) {
-                if (j != b) System.out.print(" / ");
-                System.out.print(j + " * " + 2 * i + " = " + j * 2 * i);
+                System.out.print(j + " * " + i + " = " + j * i);
+                if (j != a)
+                    System.out.print(" / ");
             }
             System.out.println();
         }
