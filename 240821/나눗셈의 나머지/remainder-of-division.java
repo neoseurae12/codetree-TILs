@@ -11,10 +11,9 @@ public class Main {
         int[] counts = new int[b];
 
         while (a > 1) {
-            int remainder = a % b;
-            counts[remainder]++;
+            counts[a % b]++;
 
-            a = a / b;
+            a /= b;
         }
 
         int squareSum = 0;
