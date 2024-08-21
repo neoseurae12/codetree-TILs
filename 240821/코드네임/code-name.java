@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 class Spy {
-    String codeName;
+    char codeName;
     int score;
 
-    public Spy(String codeName, int score) {
+    public Spy(char codeName, int score) {
         this.codeName = codeName;
         this.score = score;
     }
@@ -17,7 +17,7 @@ public class Main {
         Spy[] spies = new Spy[5];
 
         for (int i = 0; i < 5; i++) {
-            String codeName = sc.next();
+            char codeName = sc.next().charAt(0);
             int score = sc.nextInt();
 
             spies[i] = new Spy(codeName, score);
