@@ -19,8 +19,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         User u1 = new User("codetree", 10);
+        
         User u2 = new User();
-
         u2.id = sc.next();
         u2.level = sc.nextInt();
 
