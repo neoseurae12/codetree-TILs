@@ -14,9 +14,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Spy[] spies = new Spy[5];
+        int n = 5;
 
-        for (int i = 0; i < 5; i++) {
+        Spy[] spies = new Spy[n];
+
+        for (int i = 0; i < n; i++) {
             char codeName = sc.next().charAt(0);
             int score = sc.nextInt();
 
@@ -24,7 +26,7 @@ public class Main {
         }
 
         Spy lowestScoreSpy = spies[0];
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < n; i++) {
             if (lowestScoreSpy.score > spies[i].score)
                 lowestScoreSpy = spies[i];
         }
