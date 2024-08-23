@@ -15,7 +15,7 @@ public class Main {
             } else {
                 if (stack.isEmpty()) {
                     System.out.println("No");
-                    break;
+                    return;
                 }
 
                 stack.pop();
