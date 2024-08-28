@@ -12,6 +12,7 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             dq.addLast(i);
         }
+        // cf. pop() == removeFirst() / push() == addFirst()
 
         while (dq.size() > 1) {
             dq.removeFirst();
