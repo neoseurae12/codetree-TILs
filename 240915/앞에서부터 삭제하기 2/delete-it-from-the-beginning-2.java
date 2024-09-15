@@ -9,10 +9,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
+
         int[] nums = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             nums[i] = Integer.parseInt(st.nextToken());
+        }
+
+        // Priority Queue => 남아있는 정수 중 '최소값'을 구하기 위함
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int i = 0; i < n; i++) {
+            pq.add(nums[i]);
         }
 
         // 전체 합 미리 구해두기
@@ -22,22 +29,25 @@ public class Main {
         }
 
         float maxAvg = 0;
+        boolean[] passed = new boolean[10001];
+
+        // 앞에서부터 k개 삭제
         for (int i = 0; i < n - 2; i++) {
-            // Priority Queue => 남아있는 정수 중 '최소값'을 구하기 위함
-            PriorityQueue<Integer> pq = new PriorityQueue<>();
-
-            for (int j = i + 1; j < n; j++) {
-                pq.add(nums[j]);
-            }
-
+            // sum 갱신 // pq 갱신
             sum -= nums[i];
+            passed[nums[i]] = true;
+            while (passed[pq.peek()]) {
+                pq.poll();
+            }
+            int min  = pq.poll();
+            int subSum = sum - min;
 
-            // 가장 작은 숫자 하나는 제외
-            int subsum = sum - pq.poll();
-            //System.out.println(subsum + " " + count);
-            float avg = (float)subsum / pq.size();
-
-            if (avg > maxAvg)
+            //System.out.println(subSum + " " + (n - 2 - i));
+            
+            // 현재 평균 구해보기 (<- sum & pq.size())
+            float avg = (float)subSum / (n - 2 - i);
+            // 최대 평균 갱신
+            if (maxAvg < avg)
                 maxAvg = avg;
         }
 
