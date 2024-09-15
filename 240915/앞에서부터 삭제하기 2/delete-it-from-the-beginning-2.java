@@ -34,10 +34,8 @@ public class Main {
 
             // 가장 작은 숫자 하나는 제외
             int subsum = sum - pq.poll();
-            
-            int count = pq.size();
             //System.out.println(subsum + " " + count);
-            float avg = (float)subsum / count;
+            float avg = (float)subsum / pq.size();
 
             if (avg > maxAvg)
                 maxAvg = avg;
