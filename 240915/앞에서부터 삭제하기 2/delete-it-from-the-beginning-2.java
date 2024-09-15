@@ -15,21 +15,29 @@ public class Main {
             nums[i] = Integer.parseInt(st.nextToken());
         }
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        // 전체 합 미리 구해두기
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += nums[i];
+        }
+
         float maxAvg = 0;
-        for (int i = 1; i <= n - 2; i++) {
-            for (int j = i; j < n; j++) {
+        for (int i = 0; i < n - 2; i++) {
+            // Priority Queue => 남아있는 정수 중 '최소값'을 구하기 위함
+            PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+            for (int j = i + 1; j < n; j++) {
                 pq.add(nums[j]);
             }
 
-            pq.poll();  // 가장 작은 숫자 하나는 제외
+            sum -= nums[i];
 
-            int sum = 0;
+            // 가장 작은 숫자 하나는 제외
+            int subsum = sum - pq.poll();
+            
             int count = pq.size();
-            while (!pq.isEmpty()) {
-                sum += pq.poll();
-            }
-            float avg = (float)sum / count;
+            //System.out.println(subsum + " " + count);
+            float avg = (float)subsum / count;
 
             if (avg > maxAvg)
                 maxAvg = avg;
