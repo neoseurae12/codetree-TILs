@@ -16,38 +16,22 @@ public class Main {
             nums[i] = Integer.parseInt(st.nextToken());
         }
 
-        // Priority Queue => 남아있는 정수 중 '최소값'을 구하기 위함
+        // Priority Queue => 남아있는 정수 중 '최솟값'을 구하기 위함
         PriorityQueue<Integer> pq = new PriorityQueue<>();
-        for (int i = 0; i < n; i++) {
-            pq.add(nums[i]);
-        }
 
-        // 전체 합 미리 구해두기
-        int sum = 0;
-        for (int i = 0; i < n; i++) {
+        // 접근방식: 뒤에서부터 추가하기 -- 사고의 전환
+        pq.add(nums[n - 1]);
+        pq.add(nums[n - 2]);
+        int sum = nums[n - 1] + nums[n - 2];
+        double maxAvg = 0;
+        for (int i = n - 3; i >= 1; i--) {
+            // sum 갱신
             sum += nums[i];
-        }
-
-        float maxAvg = 0;
-        boolean[] passed = new boolean[10001];
-
-        // 앞에서부터 k개 삭제
-        for (int i = 0; i < n - 2; i++) {
-            // sum 갱신 // pq 갱신
-            sum -= nums[i];
-            passed[nums[i]] = true;
-            while (passed[pq.peek()]) {
-                pq.poll();
-            }
-            int min  = pq.poll();
-            int subSum = sum - min;
-
-            //System.out.println(subSum + " " + (n - 2 - i));
-            
-            // 현재 평균 구해보기 (<- sum & pq.size())
-            float avg = (float)subSum / (n - 2 - i);
-            // 최대 평균 갱신
-            if (maxAvg < avg)
+            // avg 구하기
+            pq.add(nums[i]);
+            double avg = (double)(sum - pq.peek()) / (n - 1 - i);
+            // maxAvg 갱신
+            if (avg > maxAvg)
                 maxAvg = avg;
         }
 
