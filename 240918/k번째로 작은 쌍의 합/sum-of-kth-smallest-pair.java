@@ -1,4 +1,7 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
 import java.util.PriorityQueue;
 
 public class Main {
@@ -24,18 +27,20 @@ public class Main {
         return ans;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = sc.nextInt();
-        m = sc.nextInt();
-        k = sc.nextInt();
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
 
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++)
-            arrN[i] = sc.nextInt();
-
+            arrN[i] = Integer.parseInt(st.nextToken());
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < m; i++)
-            arrM[i] = sc.nextInt();
+            arrM[i] = Integer.parseInt(st.nextToken());
 
         int kthSum = getKthSum();
         System.out.println(kthSum);
