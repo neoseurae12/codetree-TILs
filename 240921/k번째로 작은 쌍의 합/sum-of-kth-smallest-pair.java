@@ -4,23 +4,12 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
-class Pair implements Comparable<Pair> {
-    int idx1, idx2, sum;
+class Pair {
+    int idx1, idx2;
 
     public Pair(int idx1, int idx2) {
         this.idx1 = idx1;
         this.idx2 = idx2;
-        this.sum = idx1 + idx2;
-    }
-
-    @Override
-    public int compareTo(Pair p) {
-        if (this.sum != p.sum)
-            return this.sum - p.sum;
-        else if (this.idx1 != p.idx1)
-            return this.idx1 - p.idx1;
-        else
-            return this.idx2 - p.idx2;
     }
 }
 
@@ -80,6 +69,6 @@ public class Main {
         }
 
         // k번째 합을 가져옵니다.
-        System.out.print(kthSum);
+        System.out.println(kthSum);
     }
 }
