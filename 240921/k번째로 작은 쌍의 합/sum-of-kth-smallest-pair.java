@@ -84,7 +84,7 @@ public class Main {
             }
         }
 
-        // k번째 합을 가져옵니다.
+        // k번째 합
         System.out.println(kthSum);
     }
 }
