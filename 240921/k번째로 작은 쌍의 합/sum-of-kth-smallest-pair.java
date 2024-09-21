@@ -3,6 +3,7 @@ import java.util.PriorityQueue;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Objects;
 
 class Pair {
     int idx1, idx2;
@@ -10,6 +11,21 @@ class Pair {
     public Pair(int idx1, int idx2) {
         this.idx1 = idx1;
         this.idx2 = idx2;
+    }
+
+    // equals 메서드 재정의
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pair pair = (Pair) o;
+        return idx1 == pair.idx1 && idx2 == pair.idx2;
+    }
+
+    // hashCode 메서드 재정의
+    @Override
+    public int hashCode() {
+        return Objects.hash(idx1, idx2);
     }
 }
 
