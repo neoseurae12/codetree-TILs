@@ -22,12 +22,12 @@ public class Main {
             x = Integer.parseInt(br.readLine());
 
             if (x == 0) {
-                if (pq.isEmpty())
+                if (pq.isEmpty()) {
                     System.out.println(0);
-                else {
-                    // 절댓값 가장 작은 값 출력 & 제거
-                System.out.println(pq.poll());
+                    continue;
                 }
+                
+                System.out.println(pq.poll());
             }
             else {
                 // 배열에 x 넣기
