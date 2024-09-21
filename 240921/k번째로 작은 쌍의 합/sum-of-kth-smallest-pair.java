@@ -60,10 +60,12 @@ public class Main {
         // 방문 확인을 위한 Set
         Set<Pair> visited = new HashSet<>();
 
+        // 초기 상태 설정
         Pair p = new Pair(0, 0);
         pq.add(p);
         visited.add(p);
         
+        // k번째 Pair 찾기
         int kthSum = 0;
         for (int i = 0; i < k; i++) {
             Pair current = pq.poll();
@@ -84,7 +86,7 @@ public class Main {
             }
         }
 
-        // k번째 합
+        // 출력: k번째 합
         System.out.println(kthSum);
     }
 }
