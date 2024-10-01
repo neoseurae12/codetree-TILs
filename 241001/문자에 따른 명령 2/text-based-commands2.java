@@ -17,13 +17,13 @@ public class Main {
         char[] commands = sc.next().toCharArray();
 
         for (char command : commands) {
-            if (command == 'L') {
+            if (command == 'L')
                 turnLeft();
-            } else if (command == 'R') {
+            else if (command == 'R')
                 turnRight();
-            } else {  // command == 'F'
+            // command == 'F'
+            else
                 goForward();
-            }
         }
 
         System.out.println(x + " " + y);
