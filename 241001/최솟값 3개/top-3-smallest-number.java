@@ -35,7 +35,7 @@ public class Main {
                 threeNums[i] = pq.poll();
             }
 
-            long multiplyResult = 1;
+            long multiplyResult = 1;    // 최대 100,000의 수를 3번 곱할 수도 있기 때문에 int가 아닌 long으로 설정해야 함
             // 다시 넣기
             for (int i = 0; i < 3; i++) {
                 multiplyResult *= threeNums[i];
