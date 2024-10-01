@@ -23,7 +23,7 @@ public class Main {
         int threeOrMore = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (check(i, j)) {
+                if (check(i, j) >= 3) {
                     threeOrMore++;
                 }
             }
@@ -32,7 +32,7 @@ public class Main {
         System.out.println(threeOrMore);
     }
 
-    public static boolean check(int row, int column) {
+    public static int check(int row, int column) {
         int cnt = 0;
 
         // 동 -> 남 -> 서 -> 북 체크
@@ -43,10 +43,7 @@ public class Main {
                 cnt++;
         }
 
-        if (cnt >= 3)
-            return true;
-
-        return false;
+        return cnt;
     }
 
     public static boolean inRange(int x, int y) {
