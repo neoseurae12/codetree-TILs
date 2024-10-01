@@ -71,9 +71,6 @@ public class Main {
             if (!pq.isEmpty() && now <= pq.peek().arrivalTime && waiting.isEmpty()) {
                 Visitor earlyBird = pq.poll();
                 now = earlyBird.arrivalTime + earlyBird.stayingTime;
-
-                //System.out.println("now: " + now);
-                //System.out.println(earlyBird.arrivalTime);
             }
             // 기다렸다가 들어가는 경우
             else {
@@ -86,9 +83,6 @@ public class Main {
                     Visitor waiter = waiting.poll();
                     waiter.waitingTime = now - waiter.arrivalTime;
                     now += waiter.stayingTime;
-
-                    //System.out.println("now2: " + now);
-                    //System.out.println(waiter.arrivalTime);
 
                     if (waiter.waitingTime > maxWaitingTime)
                         maxWaitingTime = waiter.waitingTime;
