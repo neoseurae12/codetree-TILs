@@ -78,8 +78,7 @@ public class Main {
                     now += waiter.stayingTime;
 
                     // 최장 대기자인가?
-                    if (waiter.waitingTime > maxWaitingTime)
-                        maxWaitingTime = waiter.waitingTime;
+                    maxWaitingTime = Math.max(maxWaitingTime, waiter.waitingTime);
                 }
             }
         }
