@@ -6,10 +6,17 @@ import java.util.PriorityQueue;
 
 // 0
 // (10, 17), 27 = 0     // (20, 50), (25, 3)
-// -> (25, 3), 30 = 2 
+// -> (25, 3), 30 = 2   // (20, 50)
 // -> (20, 50), 80 = 10 
 // -> (100, 10), 110 = 0 
 // -> (105, 30), 140 = 5
+
+// 0
+// (2, 6), 8 = 0    // (4, 2), (5, 3), (8, 2)
+// (5, 3), 11 = 3   // (4, 2) (5, 3), (9, 5)
+// (9, 5), 16 = 6   // (4, 2) (5, 3)
+// (5, 3), 19 = 11  // (4, 2)
+// (4, 2), 21 = 15
 
 class Visitor {
     int ticketNumber;
@@ -59,19 +66,29 @@ public class Main {
         int now = 0;
         int maxWaitingTime = 0;
 
-        while (!pq.isEmpty()) {
-            if (now <= pq.peek().arrivalTime) {
+        while (!pq.isEmpty() || !waiting.isEmpty()) {
+            // 제시간에 들어가는 경우
+            if (!pq.isEmpty() && now <= pq.peek().arrivalTime && waiting.isEmpty()) {
                 Visitor earlyBird = pq.poll();
                 now = earlyBird.arrivalTime + earlyBird.stayingTime;
+
+                //System.out.println("now: " + now);
+                //System.out.println(earlyBird.arrivalTime);
             }
+            // 기다렸다가 들어가는 경우
             else {
+                // 대기자 쌓임
                 while (!pq.isEmpty() && now > pq.peek().arrivalTime) {
                     waiting.add(pq.poll());
                 }
-                while (!waiting.isEmpty()) {
+                // 대기자 한 명 들여보냄
+                if (!waiting.isEmpty()) {
                     Visitor waiter = waiting.poll();
                     waiter.waitingTime = now - waiter.arrivalTime;
                     now += waiter.stayingTime;
+
+                    //System.out.println("now2: " + now);
+                    //System.out.println(waiter.arrivalTime);
 
                     if (waiter.waitingTime > maxWaitingTime)
                         maxWaitingTime = waiter.waitingTime;
