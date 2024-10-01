@@ -35,7 +35,7 @@ public class Main {
                 threeNums[i] = pq.poll();
             }
 
-            int multiplyResult = 1;
+            long multiplyResult = 1;
             // 다시 넣기
             for (int i = 0; i < 3; i++) {
                 multiplyResult *= threeNums[i];
