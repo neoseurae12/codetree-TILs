@@ -77,6 +77,7 @@ public class Main {
                     waiter.waitingTime = now - waiter.arrivalTime;
                     now += waiter.stayingTime;
 
+                    // 최장 대기자인가?
                     if (waiter.waitingTime > maxWaitingTime)
                         maxWaitingTime = waiter.waitingTime;
                 }
