@@ -22,25 +22,21 @@ public class Main {
         int c = 0;
         int dir = 0;
 
-        arr[0][0] = 1;
+        arr[r][c] = 1;
 
         for (int i = 2; i <= n * m; i++) {
             int nr = r + dn[dir];
             int nc = c + dm[dir];
 
-            // 방향대로 전진
-            if (inRange(nr, nc) && arr[nr][nc] == 0) {
-                arr[nr][nc] = i;
-                r = nr;
-                c = nc;
-            }
-            // 방향 전환 & 전진
-            else {
+            // 방향 전환
+            if (!inRange(nr, nc) || arr[nr][nc] != 0) {
                 dir = (dir + 1) % 4;
-                r += dn[dir];
-                c += dm[dir];
-                arr[r][c] = i;
             }
+
+            // 전진 (공통)
+            r += dn[dir];
+            c += dm[dir];
+            arr[r][c] = i;
         }
 
         StringBuilder sb = new StringBuilder();
