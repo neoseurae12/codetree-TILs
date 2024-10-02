@@ -8,8 +8,6 @@ public class Main {
     public static int r, c;
     public static char d;
 
-    public static int[][] grid;
-
     // 북 동 서 남
     public static int[] dx = new int[]{0, 1, -1, 0};
     public static int[] dy = new int[]{-1, 0, 0, 1};
@@ -23,31 +21,27 @@ public class Main {
         // -1 => for 인덱스 0부터 반영
         r = sc.nextInt() - 1;
         c = sc.nextInt() - 1;
-        // (0, 1)
 
         d = sc.next().charAt(0);
         int dNum = getNumOfD(d);
-        //System.out.println(dNum);
 
         grid = new int[n][n];
 
         while (t-- > 0) {
-            int nr = r + dy[dNum];
-            int nc = c + dx[dNum];
+            int nr = r + dy[dNum];  // row <- y
+            int nc = c + dx[dNum];  // column <- x
 
             // 방향만 바꿀 경우
-            if (!inRange(nr, nc)) {
+            if (!inRange(nr, nc))
                 dNum = 3 - dNum;
-            }
             // 방향대로 앞으로 나아갈 경우
             else {
                 r= nr;
                 c = nc;
             }
-            //System.out.println((r+1) + " " + (c+1));
         }
 
-        // +1 => for 인덱스 0부터 반영에서 원상태 복구
+        // +1 => for '인덱스 0부터 반영'에서 원상태 복구
         System.out.println(++r + " " + ++c);
     }
 
