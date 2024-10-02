@@ -27,12 +27,13 @@ public class Main {
 
         d = sc.next().charAt(0);
         int dNum = getNumOfD(d);
+        //System.out.println(dNum);
 
         grid = new int[n][n];
 
         while (t-- > 0) {
-            int nx = r + dx[dNum];
-            int ny = c + dy[dNum];
+            int nx = r + dy[dNum];
+            int ny = c + dx[dNum];
 
             // 방향만 바꿀 경우
             if (!inRange(nx, ny)) {
@@ -43,6 +44,7 @@ public class Main {
                 r= nx;
                 c = ny;
             }
+            //System.out.println((r+1) + " " + (c+1));
         }
 
         // +1 => for 인덱스 0부터 반영에서 원상태 복구
@@ -55,11 +57,11 @@ public class Main {
 
     public static int getNumOfD(char d) {
         // 북 동 서 남
-        if (d == 'N')
+        if (d == 'U')
             return 0;
-        else if (d == 'E')
+        else if (d == 'R')
             return 1;
-        else if (d == 'W')
+        else if (d == 'L')
             return 2;
         else
             return 3;
