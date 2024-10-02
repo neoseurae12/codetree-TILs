@@ -32,17 +32,17 @@ public class Main {
         grid = new int[n][n];
 
         while (t-- > 0) {
-            int nx = r + dy[dNum];
-            int ny = c + dx[dNum];
+            int nr = r + dy[dNum];
+            int nc = c + dx[dNum];
 
             // 방향만 바꿀 경우
-            if (!inRange(nx, ny)) {
+            if (!inRange(nr, nc)) {
                 dNum = 3 - dNum;
             }
             // 방향대로 앞으로 나아갈 경우
             else {
-                r= nx;
-                c = ny;
+                r= nr;
+                c = nc;
             }
             //System.out.println((r+1) + " " + (c+1));
         }
