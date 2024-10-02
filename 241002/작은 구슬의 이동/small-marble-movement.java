@@ -25,8 +25,6 @@ public class Main {
         d = sc.next().charAt(0);
         int dNum = getNumOfD(d);
 
-        grid = new int[n][n];
-
         while (t-- > 0) {
             int nr = r + dy[dNum];  // row <- y
             int nc = c + dx[dNum];  // column <- x
