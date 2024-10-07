@@ -37,7 +37,7 @@ public class Main {
                 currentDir = 3 - currentDir;
             else  // grid[currentR][currentC] == '\'
                 // 남(1) <-> 동(0), 서(2) <-> 북(3)
-                currentDir = currentDir ^ 1;
+                currentDir = currentDir ^ 1;    // 비트 XOR 연산
 
             currentR += dr[currentDir];
             currentC += dc[currentDir];
