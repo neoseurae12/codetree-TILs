@@ -5,21 +5,28 @@ public class Main {
 
     public static int n, m;
 
+    public static int[][] grid;
+
+    public static int r, c, dir;
+
+    // 남 동 북 서
+    public static int[] dr = new int[]{1, 0, -1, 0}; // 세로
+    public static int[] dc = new int[]{0, 1, 0, -1}; // 가로
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // 입력
         n = sc.nextInt();
         m = sc.nextInt();
 
-        int[][] grid = new int[n][m];
-
-        int r = 0;
-        int c = 0;
-        int dir = 0;
-
-        // 남 동 북 서
-        int[] dr = new int[]{1, 0, -1, 0}; // 세로
-        int[] dc = new int[]{0, 1, 0, -1}; // 가로
+        // 연산
+        
+        // 초기화
+        grid = new int[n][m];
+        r = 0;
+        c = 0;
+        dir = 0;
 
         for (int num = 1; num <= n * m; num++) {
             grid[r][c] = num;
@@ -38,6 +45,7 @@ public class Main {
             }
         }
 
+        // 출력
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
