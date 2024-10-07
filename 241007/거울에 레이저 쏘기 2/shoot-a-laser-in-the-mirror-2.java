@@ -5,10 +5,11 @@ public class Main {
     public static int N, K;
     public static char[][] grid;
 
-    // 0: 동, 1: 남, 2: 서, 3: 북
-    public static int[] slashNextDir = new int[]{3, 2, 1, 0};
-    public static int[] backSlashNextDir = new int[]{1, 0, 3, 2};
+    public static int currentDir;
+    public static int currentR;
+    public static int currentC;
 
+    // 0: 동, 1: 남, 2: 서, 3: 북
     public static int[] dr = new int[]{0, 1, 0, -1};
     public static int[] dc = new int[]{1, 0, -1, 0};
 
@@ -20,27 +21,27 @@ public class Main {
         grid = new char[N][N];
         for (int i = 0; i < N; i++) {
             String line = sc.next();
-            for (int j = 0; j < N; j++) {
+            for (int j = 0; j < N; j++)
                 grid[i][j] = line.charAt(j);
-            }
         }
         K = sc.nextInt();
 
         // 연산
-        int currentDir = kToDir();
-        int currentR = kToR();
-        int currentC = kToC();
-
+        initialize();
         int cnt = 0;
 
         while (inRange(currentR, currentC)) {
+            // 0: 동, 1: 남, 2: 서, 3: 북
             if (grid[currentR][currentC] == '/')
-                currentDir = slashNextDir[currentDir];
+                // 남(1) <-> 서(2), 북(3) <-> 동(0)
+                currentDir = 3 - currentDir;
             else  // grid[currentR][currentC] == '\'
-                currentDir = backSlashNextDir[currentDir];
+                // 남(1) <-> 동(0), 서(2) <-> 북(3)
+                currentDir = currentDir ^ 1;
 
             currentR += dr[currentDir];
             currentC += dc[currentDir];
+
             cnt++;
         }
         
@@ -52,37 +53,27 @@ public class Main {
         return (r >= 0 && r < N && c >= 0 && c < N);
     }
 
-    public static int kToDir() {
+    public static void initialize() {
         // 0: 동, 1: 남, 2: 서, 3: 북
-        if (K <= N)
-            return 1;
-        else if (K <= 2 * N)
-            return 2;
-        else if (K <= 3 * N)
-            return 3;
-        else
-            return 0;
-    }
-
-    public static int kToR() {
-        if (K <= N)
-            return 0;
-        else if (K <= 2 * N)
-            return K - (N + 1);
-        else if (K <= 3 * N)
-            return N - 1;
-        else
-            return 4 * N - K;
-    }
-
-    public static int kToC() {
-        if (K <= N)
-            return K - 1;
-        else if (K <= 2 * N)
-            return N - 1;
-        else if (K <= 3 * N)
-            return 3 * N - K;
-        else
-            return 0;
+        if (K <= N) {
+            currentDir = 1;
+            currentR = 0;
+            currentC = K - 1;
+        }
+        else if (K <= 2 * N) {
+            currentDir = 2;
+            currentR = K - (N + 1);
+            currentC = N - 1;
+        }
+        else if (K <= 3 * N) {
+            currentDir = 3;
+            currentR = N - 1;
+            currentC = 3 * N - K;
+        }
+        else {
+            currentDir = 0;
+            currentR = 4 * N - K;
+            currentC = 0;
+        }
     }
 }
