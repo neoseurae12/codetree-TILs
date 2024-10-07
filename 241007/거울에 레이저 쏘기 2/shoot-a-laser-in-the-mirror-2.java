@@ -34,12 +34,10 @@ public class Main {
         int cnt = 0;
 
         while (inRange(currentR, currentC)) {
-            if (grid[currentR][currentC] == '/') {
+            if (grid[currentR][currentC] == '/')
                 currentDir = slashNextDir[currentDir];
-            }
-            else {  // grid[currentR][currentC] == '\'
+            else  // grid[currentR][currentC] == '\'
                 currentDir = backSlashNextDir[currentDir];
-            }
 
             currentR += dr[currentDir];
             currentC += dc[currentDir];
