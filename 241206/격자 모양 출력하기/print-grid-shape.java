@@ -9,15 +9,9 @@ public class Main {
 
         int[][] grid = new int[n][n];
 
-        int[][] nums = new int[m][2];
         for (int i = 0; i < m; i++) {
-            nums[i][0] = sc.nextInt();
-            nums[i][1] = sc.nextInt();
-        }
-
-        for (int i = 0; i < m; i++) {
-            int row = nums[i][0];
-            int column = nums[i][1];
+            int row = sc.nextInt();
+            int column = sc.nextInt();
             int multiple = row * column;
             grid[row-1][column-1] = multiple;
         }
