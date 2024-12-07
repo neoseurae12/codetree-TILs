@@ -9,7 +9,9 @@ public class Main {
 
         for (int i = 0; i < 2; i++) {
             String str = sc.nextLine();
-            //System.out.println(str);
+            // next() != nextLine()
+                // next() => '스페이스' 단위
+                // nextLine() => '개행문자(\n)' 단위
 
             sb.append(str.replaceAll(" ", ""));
         }
