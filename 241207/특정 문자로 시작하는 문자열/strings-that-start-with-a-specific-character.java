@@ -21,7 +21,7 @@ public class Main {
             }
         }
 
-        double lengthAvg = lengthSum / cnt;
+        double lengthAvg = (double)lengthSum / cnt;
         System.out.printf("%d %.2f", cnt, lengthAvg);
     }
 }
