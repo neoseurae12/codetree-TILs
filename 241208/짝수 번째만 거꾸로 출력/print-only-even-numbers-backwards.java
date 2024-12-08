@@ -12,9 +12,7 @@ public class Main {
         else
             idx = str.length() - 2;
 
-        for (int i = 0; i < str.length() / 2; i++) {
-            System.out.print(str.charAt(idx));
-            idx -= 2;
-        }
+        for (int i = idx; i >= 0; i -= 2)
+            System.out.print(str.charAt(i));
     }
 }
