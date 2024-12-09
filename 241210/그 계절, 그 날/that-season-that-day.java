@@ -56,8 +56,8 @@ public class Main {
                 if (d < 1 || d > 30)
                     return false;
                 break;
-            default:
-                return false;
+            //default:
+                //return false;
         }
 
         return true;
