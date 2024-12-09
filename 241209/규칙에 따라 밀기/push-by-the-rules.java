@@ -15,6 +15,7 @@ public class Main {
             else if (commands[i] == 'R')
                 cntR++;
         }
+
         char resultDir = cntL > cntR ? 'L' : 'R';
         int resultCnt = Math.abs(cntL - cntR);
         
