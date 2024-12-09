@@ -17,7 +17,7 @@ public class Main {
         }
 
         char resultDir = cntL > cntR ? 'L' : 'R';
-        int resultCnt = Math.abs(cntL - cntR);
+        int resultCnt = Math.abs(cntL - cntR) % str.length();
         
         String result;
         if (resultDir == 'L') {
