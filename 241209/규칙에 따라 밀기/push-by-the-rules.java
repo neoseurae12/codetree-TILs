@@ -18,6 +18,11 @@ public class Main {
 
         char resultDir = cntL > cntR ? 'L' : 'R';
         int resultCnt = Math.abs(cntL - cntR) % str.length();
+        /* `% str.length()`의 필요
+            반례:
+                mxh
+                LLLLLLLL
+        **/
         
         String result;
         if (resultDir == 'L') {
