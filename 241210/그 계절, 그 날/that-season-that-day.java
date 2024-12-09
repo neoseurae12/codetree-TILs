@@ -49,6 +49,9 @@ public class Main {
                     return false;
                 break;
             case 2:
+                if (d < 1 || d > 28)
+                    return false;
+                break;
             case 4:
             case 6:
             case 9:
@@ -56,8 +59,8 @@ public class Main {
                 if (d < 1 || d > 30)
                     return false;
                 break;
-            //default:
-                //return false;
+            default:
+                return false;
         }
 
         return true;
