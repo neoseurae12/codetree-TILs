@@ -8,13 +8,19 @@ public class Main {
         String strB = sc.next();
 
         int n = 0;
-        //int len = strA.length();
+        int len = strA.length();
         while (true) {
-            strA = strA.substring(strA.length() - 1) + strA.substring(0, strA.length() - 1);
+
+            strA = strA.substring(len - 1) + strA.substring(0, len - 1);
             n++;
 
             if (strA.equals(strB)) {
                 System.out.println(n);
+                return;
+            }
+
+            if (n >= len) {
+                System.out.println(-1);
                 return;
             }
         }
