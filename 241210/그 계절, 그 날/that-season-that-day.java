@@ -25,10 +25,10 @@ public class Main {
 
     public static boolean checkValidDate(int y, int m, int d) {
         if (m == 2 && d == 29) {
-            if (y % 4 == 0 && y % 100 == 0 && y % 400 != 0)
+            if (y % 4 != 0)
                 return false;
 
-            if (y % 4 != 0)
+            if (y % 4 == 0 && y % 100 == 0 && y % 400 != 0)
                 return false;
         }
 
