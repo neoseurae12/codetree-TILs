@@ -10,7 +10,7 @@ public class Main {
         if (ch == 'a')
             result = 'z';
         else
-            result = (char)((int)ch - 1);
+            result = (char)(ch - 1);
 
         System.out.println(result);
     }
