@@ -1,6 +1,28 @@
 import java.util.Scanner;
 
 public class Main {
+    public static boolean isLeapYear(int y) {
+        if (y % 4 != 0)
+            return false;
+        
+        if (y % 100 != 0)
+            return true;
+
+        if (y % 400 == 0)
+            return true;
+        
+        return false;
+    }
+
+    public static boolean checkValidDate(int y, int m, int d) {
+        //                          0  1   2   3   4   5   6   7   8   9  10  11  12 월
+        int[] numOfDays = new int[]{0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        numOfDays[2] = isLeapYear(y) ? 29 : 28;
+
+        return d <= numOfDays[m];
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -10,7 +32,7 @@ public class Main {
 
         if (!checkValidDate(y, m, d)) {
             System.out.println(-1);
-            return;
+            System.exit(0);
         }
 
         if (m >= 3 && m <= 5)
@@ -21,48 +43,5 @@ public class Main {
             System.out.println("Fall");
         else
             System.out.println("Winter");
-    }
-
-    public static boolean checkValidDate(int y, int m, int d) {
-        if (m == 2 && d == 29) {
-            if (y % 4 == 0) {
-                if (y % 100 == 0) {
-                    if (y % 400 == 0)
-                        return true;
-                    return false;
-                }
-                return true;
-            }
-
-            return false;
-        }
-
-        switch (m) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                if (d < 1 || d > 31)
-                    return false;
-                break;
-            case 2:
-                if (d < 1 || d > 28)
-                    return false;
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                if (d < 1 || d > 30)
-                    return false;
-                break;
-            default:
-                return false;
-        }
-
-        return true;
     }
 }
