@@ -9,8 +9,8 @@ public class Main {
         // num1 = 5, num2 = 0
 
         int tmp = num1;
-        num1 = num1 > num2 ? num1 : num2;
-        num2 = tmp > num2 ? num2 : tmp;
+        num1 = Math.max(num1, num2);
+        num2 = Math.min(tmp, num2);
 
         if (num2 == 0)
             return num1;
