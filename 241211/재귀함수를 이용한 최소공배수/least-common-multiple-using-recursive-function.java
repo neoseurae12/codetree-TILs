@@ -28,6 +28,8 @@ public class Main {
         if (idx == 1)
             return nums[idx];
         
+        // 1번째 ~ (idx - 1)번째 원소의 최소공배수를 구한 결과와
+        // 현재 idx 원소의 최소공배수를 구하여 반환한다.
         return lcm(getLcmAll(idx - 1), nums[idx]);
     }
 
