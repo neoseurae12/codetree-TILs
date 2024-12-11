@@ -15,7 +15,7 @@ public class Main {
         if (num2 == 0)
             return num1;
         
-        return findGcd(num2, num1 % num2);
+        return gcd(num2, num1 % num2);
     }
 
     public static int lcm(int num1, int num2) {
@@ -24,7 +24,7 @@ public class Main {
         return num1 * num2 / gcd;
     }
 
-    pucli static int getLcmAll(int idx) {
+    public static int getLcmAll(int idx) {
         if (idx == 1)
             return nums[idx];
         
