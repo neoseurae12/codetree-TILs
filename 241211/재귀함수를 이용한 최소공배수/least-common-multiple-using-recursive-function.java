@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static int[] nums;
-    public static int idx = 1;
 
-    public static int findGcd(int num1, int num2) {
+    public static int gcd(int num1, int num2) {
         // num1 = 15, num2 = 10
         // num1 = 10, num2 = 5
         // num1 = 5, num2 = 0
@@ -19,14 +18,17 @@ public class Main {
         return findGcd(num2, num1 % num2);
     }
 
-    public static int findLcm(int num1, int num2) {
-        int gcd = findGcd(num1, num2);
-        int lcm = num1 * num2 / gcd;
-        idx++;
+    public static int lcm(int num1, int num2) {
+        int gcd = gcd(num1, num2);
+        
+        return num1 * num2 / gcd;
+    }
 
-        if (idx < nums.length)
-            return findLcm(lcm, nums[idx]);
-        return lcm;
+    pucli static int getLcmAll(int idx) {
+        if (idx == 1)
+            return nums[idx];
+        
+        return lcm(getLcmAll(idx - 1), nums[idx]);
     }
 
     public static void main(String[] args) {
@@ -35,19 +37,12 @@ public class Main {
         // 입력
         int n = sc.nextInt();
         
-        nums = new int[n];
-        for (int i = 0; i < n; i++) {
+        nums = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
             nums[i] = sc.nextInt();
         }
-
-        // 로직
-        int lcmOfNums;
-        if (nums.length == 1)   // 1개의 수밖에 존재하지 않는 경우
-            lcmOfNums = nums[0];
-        else    // 2개 이상의 수가 존재하는 경우
-            lcmOfNums = findLcm(nums[idx-1], nums[idx]);
         
         // 출력
-        System.out.println(lcmOfNums);
+        System.out.println(getLcmAll(n));
     }
 }
