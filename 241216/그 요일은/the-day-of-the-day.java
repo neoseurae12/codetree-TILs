@@ -27,10 +27,16 @@ public class Main {
 
         int m = m1;
         int d = d1 + Arrays.asList(daysOfWeek).indexOf(day);
+        if (d > daysOfMonth[m]) {
+            d %= daysOfMonth[m];
+            m++;
+        }
         int count = 0;
 
         while (m != m2 || d <= d2) {
             count++;
+
+            System.out.println(m + " " + d);
 
             d += 7;
             if (d > daysOfMonth[m]) {
