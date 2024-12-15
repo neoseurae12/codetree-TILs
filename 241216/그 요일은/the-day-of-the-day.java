@@ -33,10 +33,10 @@ public class Main {
         }
         int count = 0;
 
-        while (m != m2 || d <= d2) {
+        while (m < m2 || d <= d2) {
             count++;
 
-            System.out.println(m + " " + d);
+            //System.out.println(m + " " + d);
 
             d += 7;
             if (d > daysOfMonth[m]) {
