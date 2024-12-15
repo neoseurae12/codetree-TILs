@@ -12,27 +12,23 @@ class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student student) {
-        if (height < student.height)
-            return -1;
-        else if (height > student.height)
-            return 1;
+        if (height != student.height)
+            return height - student.height;
         
-        if (weight > student.weight)
-            return -1;
-        else if (weight < student.weight)
-            return 1;
-        
-        return 0;
+        return student.weight - weight;
     }
 }
 
 public class Main {
+    public static Student[] students;
+
     public static void main(String[] args) {
         // 입력
         Scanner sc = new Scanner(System.in);
         
         int n = sc.nextInt();
-        Student[] students = new Student[n+1];
+        
+        students = new Student[n+1];
         for (int i = 1; i <=n ; i++) {
             int h = sc.nextInt();
             int w = sc.nextInt();
