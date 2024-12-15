@@ -19,7 +19,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        
         String[] daysOfWeek = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         
         int m1, d1, m2, d2;
@@ -44,7 +43,7 @@ public class Main {
         int days2 = getDays(m2, d2);
         int total = days2 - days1;
         count = total / 7;
-        if (total % 7 >= Arrays.asList().indexOf(day))
+        if (total % 7 >= Arrays.asList(daysOfWeek).indexOf(day))
             count++;
 
         System.out.println(count);
