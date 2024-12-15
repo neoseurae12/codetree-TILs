@@ -27,7 +27,7 @@ public class Main {
         int d = d1 + Arrays.asList(daysOfWeek).indexOf(day);
         int count = 0;
 
-        while (m < m2 || d <= d2) {
+        while (m <= 12 && (m != m2 || d <= d2)) {
             count++;
 
             d += 7;
