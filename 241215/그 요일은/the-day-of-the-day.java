@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        //                         1   2   3   4   5   6   7   8   9  10  11  12
+        //                                1   2   3   4   5   6   7   8   9  10  11  12
         int[] daysOfMonth = new int[]{0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         String[] daysOfWeek = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         
@@ -27,7 +27,7 @@ public class Main {
         int d = d1 + Arrays.asList(daysOfWeek).indexOf(day);
         int count = 0;
 
-        while (m != m2 || d <= d2) {
+        while (m < m2 || d <= d2) {
             count++;
 
             d += 7;
