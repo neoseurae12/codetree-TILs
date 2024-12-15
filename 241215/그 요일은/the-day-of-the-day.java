@@ -27,14 +27,17 @@ public class Main {
         int d = d1 + Arrays.asList(daysOfWeek).indexOf(day);
         int count = 0;
 
-        while (m <= 12 && (m != m2 || d <= d2)) {
+        while (m != m2 || d <= d2) {
             count++;
 
             d += 7;
-            if (daysOfMonth[m] < d) {
+            if (d > daysOfMonth[m]) {
                 d %= daysOfMonth[m];
                 m++;
             }
+
+            if (m > 12)
+                break;
         }
 
         System.out.println(count);
