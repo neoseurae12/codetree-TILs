@@ -5,10 +5,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         int decimal = 0;
-        char[] binary = sc.next().toCharArray();
-        for (char b : binary) {
-            decimal = decimal * 2 + Character.getNumericValue(b);
-        }
+        String binary = sc.next();
+        for (int i = 0; i < binary.length(); i++)
+            decimal = decimal * 2 + (binary.charAt(i) - '0');
 
         System.out.println(decimal);
     }
