@@ -10,7 +10,7 @@ public class Main {
 
         while (true) {
             if (n < 2) {
-                digits[index] = n % 2;
+                digits[index] = n;
                 break;
             }
 
