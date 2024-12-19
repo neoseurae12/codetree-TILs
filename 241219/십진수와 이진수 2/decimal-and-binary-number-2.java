@@ -13,7 +13,7 @@ public class Main {
     }
 
     public static int toBinary(int decimal) {
-        int[] digits = new int[10];
+        int[] digits = new int[20];
         int cnt = 0;
 
         while (true) {
