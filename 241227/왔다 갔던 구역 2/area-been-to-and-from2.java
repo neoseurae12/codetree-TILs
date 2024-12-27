@@ -3,8 +3,10 @@ import java.util.Scanner;
 public class Main {
 
     public static int n;
+
     public static int current = 0;
     public static int max = current, min = current;
+
     public static int[][] segments = new int[100 + 1][2];
     public static int[] blocks;
 
@@ -33,18 +35,14 @@ public class Main {
 
             if (current < min)
                 min = current;
-
-            //System.out.println(segments[i][0] + " " + segments[i][1] + " " + min + " " + max);
         }
 
         int OFFSET = -min;
         blocks = new int[max + OFFSET + 1];
         
-        for (int i = 0; i < n; i++) {
-            for (int j = segments[i][0] + OFFSET; j < segments[i][1] + OFFSET; j++) {
+        for (int i = 0; i < n; i++)
+            for (int j = segments[i][0] + OFFSET; j < segments[i][1] + OFFSET; j++)
                 blocks[j]++;
-            }
-        }
 
         int ans = 0;
         for (int i = 0; i <= max + OFFSET; i++) {
