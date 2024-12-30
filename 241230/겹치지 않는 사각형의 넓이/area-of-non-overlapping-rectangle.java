@@ -28,32 +28,24 @@ public class Main {
         x2_m = sc.nextInt() + OFFSET;
         y2_m = sc.nextInt() + OFFSET;
 
-        for (int i = x1_a; i < x2_a; i++) {
-            for (int j = y1_a; j < y2_a; j++) {
+        for (int i = x1_a; i < x2_a; i++)
+            for (int j = y1_a; j < y2_a; j++)
                 grid[i][j] = 1;
-            }
-        }
 
-        for (int i = x1_b; i < x2_b; i++) {
-            for (int j = y1_b; j < y2_b; j++) {
+        for (int i = x1_b; i < x2_b; i++)
+            for (int j = y1_b; j < y2_b; j++)
                 grid[i][j] = 2;
-            }
-        }
 
-        for (int i = x1_m; i < x2_m; i++) {
-            for (int j = y1_m; j < y2_m; j++) {
+        for (int i = x1_m; i < x2_m; i++)
+            for (int j = y1_m; j < y2_m; j++)
                 grid[i][j] = 3;
-            }
-        }
 
         int area = 0;
 
-        for (int i = 0; i < MAX_R; i++) {
-            for (int j = 0; j < MAX_R; j++) {
+        for (int i = 0; i < MAX_R; i++)
+            for (int j = 0; j < MAX_R; j++)
                 if (grid[i][j] == 1 || grid[i][j] == 2)
                     area++;
-            }
-        }
 
         System.out.println(area);
     }
