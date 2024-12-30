@@ -13,20 +13,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        x1_a = sc.nextInt();
-        y1_a = sc.nextInt();
-        x2_a = sc.nextInt();
-        y2_a = sc.nextInt();
+        x1_a = sc.nextInt() + OFFSET;
+        y1_a = sc.nextInt() + OFFSET;
+        x2_a = sc.nextInt() + OFFSET;
+        y2_a = sc.nextInt() + OFFSET;
 
-        x1_b = sc.nextInt();
-        y1_b = sc.nextInt();
-        x2_b = sc.nextInt();
-        y2_b = sc.nextInt();
+        x1_b = sc.nextInt() + OFFSET;
+        y1_b = sc.nextInt() + OFFSET;
+        x2_b = sc.nextInt() + OFFSET;
+        y2_b = sc.nextInt() + OFFSET;
 
-        x1_m = sc.nextInt();
-        y1_m = sc.nextInt();
-        x2_m = sc.nextInt();
-        y2_m = sc.nextInt();
+        x1_m = sc.nextInt() + OFFSET;
+        y1_m = sc.nextInt() + OFFSET;
+        x2_m = sc.nextInt() + OFFSET;
+        y2_m = sc.nextInt() + OFFSET;
 
         for (int i = x1_a; i < x2_a; i++) {
             for (int j = y1_a; j < y2_a; j++) {
