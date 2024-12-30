@@ -1,44 +1,34 @@
 import java.util.Scanner;
 
 public class Main {
+    public static int N = 3;
     public static int OFFSET = 1000;
     public static int MAX_R = 1000 * 2 + 1;
 
-    public static int x1_a, y1_a, x2_a, y2_a;
-    public static int x1_b, y1_b, x2_b, y2_b;
-    public static int x1_m, y1_m, x2_m, y2_m;
+    public static int[] x1 = new int[N];
+    public static int[] y1 = new int[N];
+    public static int[] x2 = new int[N];
+    public static int[] y2 = new int[N];
 
     public static int[][] grid = new int[MAX_R][MAX_R];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        x1_a = sc.nextInt() + OFFSET;
-        y1_a = sc.nextInt() + OFFSET;
-        x2_a = sc.nextInt() + OFFSET;
-        y2_a = sc.nextInt() + OFFSET;
+        for (int i = 0; i < N; i++) {
+            x1[i] = sc.nextInt() + OFFSET;
+            y1[i] = sc.nextInt() + OFFSET;
+            x2[i] = sc.nextInt() + OFFSET;
+            y2[i] = sc.nextInt() + OFFSET;
+        }
 
-        x1_b = sc.nextInt() + OFFSET;
-        y1_b = sc.nextInt() + OFFSET;
-        x2_b = sc.nextInt() + OFFSET;
-        y2_b = sc.nextInt() + OFFSET;
-
-        x1_m = sc.nextInt() + OFFSET;
-        y1_m = sc.nextInt() + OFFSET;
-        x2_m = sc.nextInt() + OFFSET;
-        y2_m = sc.nextInt() + OFFSET;
-
-        for (int i = x1_a; i < x2_a; i++)
-            for (int j = y1_a; j < y2_a; j++)
-                grid[i][j] = 1;
-
-        for (int i = x1_b; i < x2_b; i++)
-            for (int j = y1_b; j < y2_b; j++)
-                grid[i][j] = 2;
-
-        for (int i = x1_m; i < x2_m; i++)
-            for (int j = y1_m; j < y2_m; j++)
-                grid[i][j] = 3;
+        for (int i = 0; i < N; i++) {
+            for (int j = x1[i]; j < x2[i]; j++) {
+                for (int k = y1[i]; k < y2[i]; k++) {
+                    grid[j][k] = i + 1;
+                }
+            }
+        }
 
         int area = 0;
 
