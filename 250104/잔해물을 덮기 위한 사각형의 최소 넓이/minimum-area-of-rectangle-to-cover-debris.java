@@ -31,37 +31,31 @@ public class Main {
             }
         }
 
-        // 완전 가리는 경우 -> 0
-        boolean horizontal = x[1] >= x[3] && x[2] <= x[4];
-        boolean vertical = y[1] >= y[3] && y[2] <= y[4];
-        if (horizontal && vertical) {
-            System.out.println(0);
-            return;
-        }
-
-        // 부분적으로 가리는 경우
-
+        // 한 쪽 부분을 가리는 경우
         int area = 0;
 
-        // 한쪽 부분을 가리는 경우 -> 다른 쪽 부분의 넓이
-        if ((horizontal && !vertical) || (!horizontal && vertical)) {
-            for (int i = x[1]; i < x[2]; i++) {
-                for (int j = y[1]; j < y[2]; j++) {
+        if ((x[1] >= x[3] && x[2] <= x[4]) && ((y[3] <= y[1] && y[1] <= y[4]) || (y[3] <= y[2] && y[2] <= y[4]))) {
+            for (int i = 0; i < MAX_R; i++) {
+                for (int j = 0; j < MAX_R; j++) {
                     if (grid[i][j] == 1)
                         area++;
                 }
             }
-
-            System.out.println(area);
-            return;
         }
-
-        // 애매하게 가리는 경우 -> 첫 번째 사각형의 넓이
-        // 완전 안 가리는 경우 -> 첫 번째 사각형의 넓이
-        for (int i = 0; i < MAX_R; i++) {
-            for (int j = 0; j < MAX_R; j++) {
-                if (grid[i][j] == 1 || grid[i][j] == 3)
-                    area++;
+        else if ((y[1] >= y[3] && y[2] <= y[4]) && ((x[3] <= x[1] && x[1] <= x[4]) || (x[3] <= x[2] && x[2] <= x[4]))) {
+            for (int i = 0; i < MAX_R; i++) {
+                for (int j = 0; j < MAX_R; j++) {
+                    if (grid[i][j] == 1)
+                        area++;
+                }
+            }
+        } 
+        else {
+            for (int i = 0; i < MAX_R; i++) {
+                for (int j = 0; j < MAX_R; j++) {
+                    if (grid[i][j] == 1 || grid[i][j] == 3)
+                        area++;
+                }
             }
         }
 
