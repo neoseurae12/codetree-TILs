@@ -18,14 +18,20 @@ public class Main {
             arr[i] = sc.nextInt();
 
         // cf. 2, 7, 7, 7, 7, 5, 7
+        // cf. 3
         int maxCnt = 0, cnt = 0;
-        for (int i = 0; i < n; i++) {
-            if (i != 0 && arr[i] != arr[i-1]) {
-                if (maxCnt < cnt)
-                    maxCnt = cnt;
-                cnt = 0;
+
+        if (n == 1)
+            maxCnt = 1;
+        else {
+            for (int i = 0; i < n; i++) {
+                if (i != 0 && arr[i] != arr[i-1]) {
+                    if (maxCnt < cnt)
+                        maxCnt = cnt;
+                    cnt = 0;
+                }
+                cnt++;
             }
-            cnt++;
         }
 
         System.out.println(maxCnt);
