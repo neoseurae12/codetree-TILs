@@ -24,10 +24,10 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             if (i != 0 && arr[i] != arr[i-1]) {
-                if (maxCnt < cnt) {
+                if (maxCnt < cnt)
                     maxCnt = cnt;
-                    cnt = 0;
-                }
+                
+                cnt = 0;
             }
 
             cnt++;
