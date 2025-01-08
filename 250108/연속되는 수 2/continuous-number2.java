@@ -31,8 +31,7 @@ public class Main {
             cnt++;
         }
 
-        if (maxCnt < cnt)
-            maxCnt = cnt;
+        maxCnt = Math.max(maxCnt, cnt);
 
         System.out.println(maxCnt);
     }
