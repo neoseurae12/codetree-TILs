@@ -1,6 +1,6 @@
 // i == 0인 경우 -> 무조건 cnt++
         // i > 0인 경우
-            // i번째와 i-1번째의 수가 다른 경우 -> maxCnt와 cnt 비교 -> maxCnt 갱신 여부, cnt 초기화
+            // i번째와 i-1번째의 수가 다른 경우 -> maxCnt와 cnt 비교 -> maxCnt 갱신 여부, cnt 초기화, cnt++
             // i번째와 i-1번째의 수가 같은 경우 -> cnt++
 
 import java.util.Scanner;
@@ -19,20 +19,22 @@ public class Main {
 
         // cf. 2, 7, 7, 7, 7, 5, 7
         // cf. 3
+        // cf. 3, 3, 3, 3
         int maxCnt = 0, cnt = 0;
 
-        if (n == 1)
-            maxCnt = 1;
-        else {
-            for (int i = 0; i < n; i++) {
-                if (i != 0 && arr[i] != arr[i-1]) {
-                    if (maxCnt < cnt)
-                        maxCnt = cnt;
+        for (int i = 0; i < n; i++) {
+            if (i != 0 && arr[i] != arr[i-1]) {
+                if (maxCnt < cnt) {
+                    maxCnt = cnt;
                     cnt = 0;
                 }
-                cnt++;
             }
+
+            cnt++;
         }
+
+        if (maxCnt < cnt)
+            maxCnt = cnt;
 
         System.out.println(maxCnt);
     }
