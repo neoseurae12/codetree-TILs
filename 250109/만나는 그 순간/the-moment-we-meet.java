@@ -11,8 +11,8 @@ public class Main {
     public static char[] dB = new char[MAX_M];
     public static int[] tB = new int[MAX_M];
 
-    public static int[] arrA = new int[MAX_T];
-    public static int[] arrB = new int[MAX_T];
+    public static int[] arrA = new int[MAX_N * MAX_T];
+    public static int[] arrB = new int[MAX_M * MAX_T];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
