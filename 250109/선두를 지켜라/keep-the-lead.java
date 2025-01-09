@@ -59,12 +59,19 @@ public class Main {
         //System.out.println();
 
         int ans = 0;
-        int head = posA[1] - posB[1];   // 양수 -> A, 음수 -> A
+        int head = 0;
         // 언제 A와 B의 선두가 뒤바뀌는가 카운트
         // 'i번째에서의 (A의 위치 - B의 위치)' * 'i-1번째에서의 (A의 위치 - B의 위치)' < 0 => 선두 뒤바뀜
         for (int i = 1; i < timeA; i++) {
             if (posA[i] - posB[i] == 0)
                 continue;
+
+            if (head == 0) {
+                head = posA[i] - posB[i];
+                continue;
+            }
+            
+            // 선두가 바뀜
             if (head * (posA[i] - posB[i]) < 0) {
                 ans++;
                 head = posA[i] - posB[i];
