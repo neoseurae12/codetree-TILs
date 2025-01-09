@@ -6,8 +6,8 @@ public class Main {
     public static final int MAX_V = 1000;
 
     public static int n, m;
-    public static int[] posA = new int[MAX_N * MAX_V + 1];
-    public static int[] posB = new int[MAX_N * MAX_V + 1];
+    public static long[] posA = new int[MAX_N * MAX_V + 1];
+    public static long[] posB = new int[MAX_M * MAX_V + 1];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class Main {
         m = sc.nextInt();
         
         // A의 위치 변화 기록
-        int timeA = 1;
+        long timeA = 1;
         for (int i = 0; i < n; i++) {
             int v = sc.nextInt();
             int t = sc.nextInt();
@@ -40,7 +40,7 @@ public class Main {
         //System.out.println();
         
         // B의 위치 변화 기록
-        int timeB = 1;
+        long timeB = 1;
         for (int i = 0; i < m; i++) {
             int v = sc.nextInt();
             int t = sc.nextInt();
@@ -59,13 +59,16 @@ public class Main {
         //System.out.println();
 
         int ans = 0;
-        int head = 0;
+        long head = 0;
         // 언제 A와 B의 선두가 뒤바뀌는가 카운트
         // 'i번째에서의 (A의 위치 - B의 위치)' * 'i-1번째에서의 (A의 위치 - B의 위치)' < 0 => 선두 뒤바뀜
         for (int i = 1; i < timeA; i++) {
+            // 똑같은 위치 -> 영향 없음
             if (posA[i] - posB[i] == 0)
                 continue;
 
+            // 다른 위치
+            // 첫 선두 알아내기
             if (head == 0) {
                 head = posA[i] - posB[i];
                 continue;
