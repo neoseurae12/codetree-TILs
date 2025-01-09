@@ -6,79 +6,65 @@ public class Main {
     public static final int MAX_T = 1000;
 
     public static int n, m;
-    public static char[] dA = new char[MAX_N];
-    public static int[] tA = new int[MAX_N];
-    public static char[] dB = new char[MAX_M];
-    public static int[] tB = new int[MAX_M];
 
-    public static int[] arrA = new int[MAX_N * MAX_T];
-    public static int[] arrB = new int[MAX_M * MAX_T];
+    public static int[] posA = new int[MAX_N * MAX_T + 1];
+    public static int[] posB = new int[MAX_M * MAX_T + 1];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        // n, m 입력 받기
         n = sc.nextInt();
         m = sc.nextInt();
-        // d와 t 입력 받기
+
+        int timeA = 1;
         for (int i = 0; i < n; i++) {
-            dA[i] = sc.next().charAt(0);
-            tA[i] = sc.nextInt();
-        }
+            char d = sc.next().charAt(0);
+            int t = sc.nextInt();
 
-        for (int i = 0; i < m; i++) {
-            dB[i] = sc.next().charAt(0);
-            tB[i] = sc.nextInt();
-        }
+            while (t-- > 0) {
+                // 오른쪽 => 이전 위치에서 +1
+                if (d == 'R') {
+                    posA[timeA] = posA[timeA - 1] + 1; 
+                }
+                // 왼쪽 => 이전 위치에서 -1
+                else {
+                    posA[timeA] = posA[timeA - 1] - 1;  
+                }
 
-        int tATotal = 0, dATotal = 0;
-
-        // A 시뮬레이션 -> arrA
-        for (int i = 0; i < n; i++) {
-            // R일 경우 -> t초 동안 1 증가된 값으로 arrA 채우기
-            // L일 경우 -> t초 동안 1 감소된 값으로 arrA 채우기
-            int d = dA[i] == 'R' ? 1 : -1;
-
-            for (int j = 0; j < tA[i]; j++) {
-                tATotal++;
-                dATotal += d;
-                
-                arrA[tATotal] = dATotal;
-                //System.out.print(arrA[tATotal] + " ");
+                // 시간은 계속 흘러간다...
+                timeA++;
             }
         }
 
-        //System.out.println();
-
-        int tBTotal = 0, dBTotal = 0;
-
-        // B 시뮬레이션 -> arrB
+        int timeB = 1;
         for (int i = 0; i < m; i++) {
-            // R일 경우 -> t초 동안 1 증가된 값으로 arrB 채우기
-            // L일 경우 -> t초 동안 1 감소된 값으로 arrB 채우기
-            int d = dB[i] == 'R' ? 1 : -1;
+            char d = sc.next().charAt(0);
+            int t = sc.nextInt();
 
-            for (int j = 0; j < tB[i]; j++) {
-                tBTotal++;
-                dBTotal += d;
-                
-                arrB[tBTotal] = dBTotal;
-                //System.out.print(arrB[tBTotal] + " ");
+            while (t-- > 0) {
+                if (d == 'R') {
+                    posB[timeB] = posB[timeB - 1] + 1;
+                }
+                else {
+                    posB[timeB] = posB[timeB - 1] - 1;
+                }
+
+                timeB++;
             }
         }
 
-        // arrA와 arrB 비교
-        for (int i = 1; i < Math.min(tATotal, tBTotal); i++) {
+        // 끝내 만나지 않는다면 -> -1 출력
+        int ans = -1;
+        for (int i = 1; i < Math.min(timeA, timeB); i++) {
             // 같은 값일 경우 -> 해당 인덱스 값 출력; return; (인덱스의 시작이 0이 아닌 1이어야 할 것)
-            if (arrA[i] == arrB[i]) {
-                System.out.println(i);
-                return;
+            if (posA[i] == posB[i]) {
+                ans = i;
+                break;
             }
 
             // 다른 값일 경우 -> 인덱스++
         }
 
-        // 끝내 만나지 않는다면 -> -1 출력
-        System.out.println(-1);
+        System.out.println(ans);
     }
 }
