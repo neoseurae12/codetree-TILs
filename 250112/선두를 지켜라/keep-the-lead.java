@@ -43,7 +43,7 @@ public class Main {
         // A가 선두라면 -> 1, B가 선두라면 -> -1
         int ans = 0;
 
-        // head: x -1 -1 -1 -1 1 1 -1 -1 -1 -1 -1 -1 -1 -1
+        // leader: x -1 -1 -1 -1 1 1 -1 -1 -1 -1 -1 -1 -1 -1
         int leader = 0;
         for (int i = 1; i < timeA; i++) {
             // 현재 선두: A
@@ -76,4 +76,4 @@ public class Main {
 
 // posA: 0 1 2 4 6 8 10 
 // posB: 0 1 2 3 10 15 20
-// head: x 0 0 1 -1 -1 -1
+// leader: x 0 0 1 -1 -1 -1
