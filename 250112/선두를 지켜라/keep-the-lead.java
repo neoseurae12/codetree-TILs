@@ -40,30 +40,34 @@ public class Main {
         }
         // posB: 0 2 4 6 7 8 11 14 17 20 23 26 29 32 35
 
-        // A가 선두라면 -> 1, B가 선두라면 -> -1, 선두가 판정이 안 된다면 -> 0
+        // A가 선두라면 -> 1, B가 선두라면 -> -1
         int ans = 0;
 
-        // head: x -1 -1 0 0 1 0 -1 -1 -1 -1 -1 -1 -1 -1
-        int head = 0;
-        if (posA[1] != posB[1]) {
-            head = posA[1] > posB[1] ? 1 : -1;
-        }
-        for (int i = 2; i < timeA; i++) {
-            int currHead = 0;
-            if (posA[i] != posB[i])
-                currHead = posA[i] > posB[i] ? 1 : -1;
-            
-            if (currHead == 0)
-                continue;
-            
-            if (head * currHead < 0) {
-                ans++;
-                //System.out.print(i + " ");
-                //System.out.print(head + " ");
-                //System.out.println(currHead + " ");
+        // head: x -1 -1 -1 -1 1 1 -1 -1 -1 -1 -1 -1 -1 -1
+        int leader = 0;
+        for (int i = 1; i < timeA; i++) {
+            // 현재 선두: A
+            if (posA[i] > posB[i]) {
+                // 기존 선두: B -> ans++
+                if (leader == -1) {
+                    ans++;
+                }
+
+                // 선두를 A로 유지 및 변경
+                leader = 1;
+            }
+            // 현재 선두: B
+            else if (posA[i] < posB[i]) {
+                // 기존 선두: A -> ans++
+                if (leader == 1) {
+                    ans++;
+                }
+
+                // 선두를 B로 유지 및 변경
+                leader = -1;
             }
 
-            head = currHead;
+            // 어느 한 쪽이 앞서지 않는다면 -> 넘어가기
         }
 
         System.out.println(ans);
