@@ -45,16 +45,22 @@ public class Main {
 
         // head: x -1 -1 0 0 1 0 -1 -1 -1 -1 -1 -1 -1 -1
         int head = 0;
-        head = posA[1] > posB[1] ? 1 : -1;
+        if (posA[1] != posB[1]) {
+            head = posA[1] > posB[1] ? 1 : -1;
+        }
         for (int i = 2; i < timeA; i++) {
             int currHead = 0;
-            currHead = posA[i] > posB[i] ? 1 : -1;
+            if (posA[i] != posB[i])
+                currHead = posA[i] > posB[i] ? 1 : -1;
             
             if (currHead == 0)
                 continue;
             
             if (head * currHead < 0) {
                 ans++;
+                //System.out.print(i + " ");
+                //System.out.print(head + " ");
+                //System.out.println(currHead + " ");
             }
 
             head = currHead;
@@ -63,3 +69,7 @@ public class Main {
         System.out.println(ans);
     }
 }
+
+// posA: 0 1 2 4 6 8 10 
+// posB: 0 1 2 3 10 15 20
+// head: x 0 0 1 -1 -1 -1
