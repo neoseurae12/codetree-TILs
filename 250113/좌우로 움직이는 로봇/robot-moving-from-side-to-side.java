@@ -55,7 +55,7 @@ public class Main {
         int ans = 0;
         int maxTime = timeA > timeB ? timeA : timeB;
 
-        for (int i = 2; i < maxTime; i++)
+        for (int i = 1; i < maxTime; i++)
             if (posA[i] == posB[i])
                 if (posA[i-1] != posB[i-1])
                     ans++;
