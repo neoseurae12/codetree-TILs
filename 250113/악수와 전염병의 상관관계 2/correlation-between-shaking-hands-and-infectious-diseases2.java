@@ -26,10 +26,12 @@ public class Main {
             int x = sc.nextInt();
             int y = sc.nextInt();
 
-            // P와 악수를 나눈 상대 개발자의 번호
-            int partner = x == P ? y : x;
+            if (x == P || y == P) {
+                // P와 악수를 나눈 상대 개발자의 번호
+                int partner = x == P ? y : x;
 
-            handshakes[t] = partner;
+                handshakes[t] = partner;
+            }
         }
         
         // 초기 감염자
