@@ -26,9 +26,9 @@ public class Main {
     // N: 개발자 수, K: 옮길 수 있는 횟수, P: 처음 전염병 걸린 개발자의 번호, T: 총 악수 횟수
     public static int N, K, P, T;
 
-    // int[] handshakeNum: 각 개발자의 옮길 수 있는 횟수 기록
+    // 각 개발자가 전염병을 옮길 수 있는 악수의 횟수 기록
     public static int[] handshakeNum = new int[MAX_N + 1];
-    // int[] infections: handshake에서 K번째까지의 개발자들 '감염' 처리
+    // 감염 여부 체크
     public static boolean[] infected = new boolean[MAX_N + 1];
 
     public static void main(String[] args) {
@@ -51,26 +51,28 @@ public class Main {
             handshakes[i] = new HandShake(t, x, y);
         }
 
+        // 시간 흐름대로 추적하도록 정렬
         Arrays.sort(handshakes, 0, T);
         
         // 초기 감염자
         infected[P] = true;
-        // 시간 흐름대로 추적
+        
+        // 악수 -> 전염
         for (int i = 0; i < T; i++) {
             int target1 = handshakes[i].person1;
             int target2 = handshakes[i].person2;
 
-            // 전염된 사람끼리 만나도 전염병을 옮기게 되는 횟수에 포함
+            // 악수 횟수++
             if (infected[target1])
                 handshakeNum[target1]++;
             if (infected[target2])
                 handshakeNum[target2]++;
             
-            // x가 감염자 && 감염시킬 수 있는 횟수인 경우 -> y 감염시킴
+            // x가 감염자 && 전염시킬 수 있는 횟수인 경우 -> y 전염시킴
             if (handshakeNum[target1] <= K && infected[target1])
                 infected[target2] = true;
 
-            // y가 감염자 && 감염시킬 수 있는 횟수인 경우 -> x 감염시킴
+            // y가 감염자 && 전염시킬 수 있는 횟수인 경우 -> x 전염시킴
             if (handshakeNum[target2] <= K && infected[target2])
                 infected[target1] = true;
         }
