@@ -26,23 +26,28 @@ public class Main {
 
             // Case 1: L
                 // 만약 앞쪽으로 갈 수 있다면 -> 앞쪽으로 위치 변경
-            if (command == 'L')
-                if (it.hasPrevious())
+            if (command == 'L') {
+                if (it.hasPrevious()) {
                     it.previous();
+                }
+            }
             // Case 2: R
                 // 만약 뒷쪽으로 갈 수 있다면 -> 뒷쪽으로 위치 변경
-            else if (command == 'R')
-                if (it.hasNext())
+            else if (command == 'R') {
+                if (it.hasNext()) {
                     it.next();
+                }
+            }
             // Case 3: D
-                // 만약 뒷쪽으로 갈 수 있다면 -> 뒷쪽으로 위치 변경 + 제거
-            else if (command == 'D')
+                // 만약 뒷쪽으로 갈 수 있다면 -> 뒷쪽으로 위치 변경 + 삭제
+            else if (command == 'D') {
                 if (it.hasNext()) {
                     it.next();
                     it.remove();
                 }
-            // Case 4: P &
-                // & 문자 추가
+            }
+            // Case 4: P
+                // 입력: 추가할 문자 -> 추가
             else if (command == 'P') {
                 char e = sc.next().charAt(0);
                 it.add(e);
